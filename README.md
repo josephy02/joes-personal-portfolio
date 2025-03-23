@@ -1,2 +1,2 @@
-# joes-personal-portfolio
-My personal portfolio
+# Portfolio site
+Currently under construction...
