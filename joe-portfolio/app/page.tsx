@@ -50,7 +50,7 @@ export default function Home() {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <div className="hidden md:flex space-x-1">
-              <Link href="https://github.com" target="_blank">
+              <Link href="https://github.com/josephy02" target="_blank">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100/10 text-sm font-medium transition-colors hover:bg-primary/20 hover:text-primary">
                   <Github className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
