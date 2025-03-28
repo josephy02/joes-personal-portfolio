@@ -41,7 +41,7 @@ export function AnimatedHeading({ text, className = "" }: AnimatedHeadingProps) 
       setTimeout(() => {
         span.style.opacity = "1"
         span.style.transform = "translateY(0)"
-      }, 5)
+      }, 100)
     })
   }, [text])
 
