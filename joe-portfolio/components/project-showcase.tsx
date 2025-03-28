@@ -27,13 +27,13 @@ const projects = [
   {
     id: 2,
     title: "Real-Time Sentiment Analysis Dashboard",
-    description: "Sentiment analysis microservices to process over 10,000 social media posts in real time.",
+    description: "Sentiment analysis microservices to process up to 1,000 social media posts in real time.",
     longDescription:
-      "Designed sentiment analysis microservices to process over 10,000 social media posts in real time, reducing manual reporting time by 30% and achieving 92% accuracy through optimized text preprocessing. The dashboard provides real-time insights and visualizations of sentiment trends across different platforms and topics.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["Python", "FastAPI", "Streamlit", "NLP"],
+      "SpectraNLP is a modular sentiment analysis platform that collects text data from Flickr comments, New York Times articles, and Reddit posts to analyze public sentiment on topics like the Israel-Palestine conflict. Using VADER sentiment analysis with a custom lexicon, it processes and visualizes sentiment distribution, trends over time, and comparative analyses through an interactive Streamlit dashboard",
+    image: "/images/sentiment-analysis.jpg",
+    tags: ["Python", "REST APIs", "Streamlit", "NLTK", "NLP"],
     links: {
-      demo: "https://example.com/demo",
+      demo: "https://spectranlp.streamlit.app/",
       github: "https://github.com/josephy02/SpectraNLP",
     },
   },
