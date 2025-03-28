@@ -77,7 +77,7 @@ export default function Home() {
                 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
               />
               <p className="mt-6 text-lg leading-relaxed text-slate-400 md:text-xl">
-                AI Research Lead & Computer Vision Engineer
+                AI Engineer & Product Developer
               </p>
               <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                 <Button className="group relative overflow-hidden rounded-full px-8 py-6 text-sm font-medium uppercase tracking-wider">
@@ -105,9 +105,9 @@ export default function Home() {
                 </h2>
                 <div className="mt-6 h-1 w-20 bg-primary"></div>
                 <p className="mt-6 text-slate-400">
-                  I'm an AI Research Lead and Computer Vision Engineer with expertise in developing cutting-edge
+                  I'm an AI Engineer with expertise in developing cutting-edge
                   solutions that leverage the power of artificial intelligence and machine learning. My work spans
-                  across autonomous AI agents, computer vision, and multimodal research.
+                  across autonomous AI agents, computer vision, and Human-AI Interaction.
                 </p>
                 <p className="mt-4 text-slate-400">
                   With a strong foundation in both theoretical concepts and practical applications, I build systems that

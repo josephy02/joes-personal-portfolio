@@ -11,12 +11,12 @@ import { Badge } from "@/components/ui/badge"
 const projects = [
   {
     id: 1,
-    title: "Infrastructure for Multimodal Research",
+    title: "End-to-End Computer Vision Pipeline for Object Detection & Segmentation",
     description:
-      "Modular infrastructure system to support training of multimodal language and vision models concurrently.",
+      "...",
     longDescription:
       "Developed a modular infrastructure system to support training of 2–3 multimodal language and vision models concurrently. Utilized Docker and Kubernetes to containerize model training pipelines, resulting in a 30% improvement in deployment time compared to manual setups. Integrated logging and monitoring tools to capture key performance metrics, reducing troubleshooting time by 15% and enabling quicker iterations.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/images/d2.jpg",
     tags: ["Python", "PyTorch", "Docker", "Kubernetes"],
     links: {
       demo: "https://example.com/demo",
@@ -38,7 +38,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Graph-Based ML System for Network Analysis",
+    title: "AWS",
     description: "Graph ML system for anomaly detection across networks with 100K+ nodes.",
     longDescription:
       "Engineered a graph ML system for anomaly detection across networks with 100K+ nodes, optimizing feature extraction workflows and reducing runtime by 40% while achieving 90% precision. The system uses advanced graph neural networks to identify patterns and anomalies in complex network structures, providing valuable insights for security and optimization.",
