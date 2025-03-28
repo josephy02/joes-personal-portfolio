@@ -24,7 +24,7 @@ export default function Home() {
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold tracking-tight">
-              Joseph<span className="text-primary">Yared</span>
+              J<span className="text-primary">Y</span>
             </span>
           </Link>
           <nav className="hidden space-x-8 md:flex">
@@ -73,11 +73,11 @@ export default function Home() {
           <div className="container relative z-10 mx-auto px-4 py-32 md:py-40">
             <div className="mx-auto max-w-4xl text-center">
               <AnimatedHeading
-                text="Joseph Yared"
-                className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
+                text="Hey! My Name's Joe!"
+                className="text-4xl font-bold tracking-normal md:text-6xl lg:text-7xl"
               />
               <p className="mt-6 text-lg leading-relaxed text-slate-400 md:text-xl">
-                AI Engineer & Product Developer
+                I'm an AI Engineer & Product Developer
               </p>
               <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                 <Button className="group relative overflow-hidden rounded-full px-8 py-6 text-sm font-medium uppercase tracking-wider">

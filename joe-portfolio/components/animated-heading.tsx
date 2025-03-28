@@ -14,12 +14,21 @@ export function AnimatedHeading({ text, className = "" }: AnimatedHeadingProps) 
     const heading = headingRef.current
     if (!heading) return
 
-    const letters = heading.innerText.split("")
+    const letters = text.split("")
     heading.innerHTML = ""
 
     letters.forEach((letter, index) => {
       const span = document.createElement("span")
-      span.innerText = letter
+
+      if (letter === " ") {
+        // Handle spaces by adding a non-breaking space
+        span.innerHTML = "&nbsp;"
+        span.style.display = "inline-block"
+        span.style.width = "0.3em" // Add width for proper spacing
+      } else {
+        span.innerText = letter
+      }
+
       span.style.opacity = "0"
       span.style.transform = "translateY(20px)"
       span.style.display = "inline-block"
@@ -32,7 +41,7 @@ export function AnimatedHeading({ text, className = "" }: AnimatedHeadingProps) 
       setTimeout(() => {
         span.style.opacity = "1"
         span.style.transform = "translateY(0)"
-      }, 100)
+      }, 5)
     })
   }, [text])
 
@@ -42,4 +51,5 @@ export function AnimatedHeading({ text, className = "" }: AnimatedHeadingProps) 
     </h1>
   )
 }
+
 
