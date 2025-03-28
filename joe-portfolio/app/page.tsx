@@ -81,7 +81,7 @@ export default function Home() {
               </p>
               <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                 <Button className="group relative overflow-hidden rounded-full px-8 py-6 text-sm font-medium uppercase tracking-wider">
-                  <span className="relative z-10">Explore My Work</span>
+                  <span className="relative z-10"><Link href="#experience">Explore My Work</Link></span>
                   <span className="absolute inset-0 h-full w-full translate-y-full rounded-full bg-primary transition-transform duration-300 group-hover:translate-y-0"></span>
                 </Button>
                 <Button
