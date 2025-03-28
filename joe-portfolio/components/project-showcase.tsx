@@ -11,16 +11,16 @@ import { Badge } from "@/components/ui/badge"
 const projects = [
   {
     id: 1,
-    title: "End-to-End Computer Vision Pipeline for Object Detection & Segmentation",
+    title: "A Customizable End-to-End Computer Vision Pipeline for Object Detection & Segmentation",
     description:
-      "...",
+      "A customizable computer vision pipeline built with Detectron2 for object detection and instance segmentation tasks, with optimized deployment capabilities.",
     longDescription:
-      "Developed a modular infrastructure system to support training of 2–3 multimodal language and vision models concurrently. Utilized Docker and Kubernetes to containerize model training pipelines, resulting in a 30% improvement in deployment time compared to manual setups. Integrated logging and monitoring tools to capture key performance metrics, reducing troubleshooting time by 15% and enabling quicker iterations.",
+      "Developed a modular infrastructure system to support training of 3D multiple object detection and segmentation models using PyTorch and Detectron2. The system includes data preprocessing pipelines, model training workflows, and containerized deployment with Docker and Kubernetes orchestration. Features include automated dataset preparation, hyperparameter optimization, model evaluation tools, and export capabilities for production environments. The architecture supports various backbone networks and is optimized for both research experimentation and industrial applications.",
     image: "/images/d2.jpg",
-    tags: ["Python", "PyTorch", "Docker", "Kubernetes"],
+    tags: ["Python", "PyTorch", "Docker", "Detectron2"],
     links: {
-      demo: "https://example.com/demo",
-      github: "https://github.com/example/multimodal-infra",
+      demo: "https://docs.google.com/presentation/d/1CwUDI6y-Z6E5PME46U4sSF9qtclZ6m3l/edit?usp=sharing&ouid=115360730949705164823&rtpof=true&sd=true",
+      github: "https://github.com/josephy02/Detectron2-Sample",
     },
   },
   {
@@ -33,20 +33,20 @@ const projects = [
     tags: ["Python", "FastAPI", "Streamlit", "NLP"],
     links: {
       demo: "https://example.com/demo",
-      github: "https://github.com/example/sentiment-dashboard",
+      github: "https://github.com/josephy02/SpectraNLP",
     },
   },
   {
     id: 3,
-    title: "AWS",
-    description: "Graph ML system for anomaly detection across networks with 100K+ nodes.",
+    title: "AWS Support Ticket Analytics Dashboard",
+    description: "A DE project that processes and visualizes AWS support ticket data using PySpark and Streamlit.",
     longDescription:
-      "Engineered a graph ML system for anomaly detection across networks with 100K+ nodes, optimizing feature extraction workflows and reducing runtime by 40% while achieving 90% precision. The system uses advanced graph neural networks to identify patterns and anomalies in complex network structures, providing valuable insights for security and optimization.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["Python", "PyG", "NetworkX", "Graph ML"],
+      "Built an end-to-end analytics dashboard for AWS support ticket data. The system features an ETL pipeline for processing ticket data, real-time analytics visualizations, SLA monitoring and compliance tracking, and performance metrics visualization. The tech stack includes PySpark for data processing, Streamlit for interactive visualization, Pandas for data manipulation, and Plotly for interactive charts. This solution enables support teams to monitor ticket resolution performance, track SLA compliance, and identify trends in customer issues to improve service quality.",
+    image: "/images/aws2.jpg",
+    tags: ["Python", "PySpark", "Pandas", "Plotly", "Streamlit"],
     links: {
-      demo: "https://example.com/demo",
-      github: "https://github.com/example/graph-ml",
+      demo: "https://csanalytics-aws-support-metrics.streamlit.app/",
+      github: "https://github.com/josephy02/CSAnalytics",
     },
   },
 ]
