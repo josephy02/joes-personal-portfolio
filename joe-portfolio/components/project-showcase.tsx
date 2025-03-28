@@ -7,6 +7,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 
 const projects = [
   {
@@ -97,14 +98,18 @@ export function ProjectShowcase() {
               ))}
             </div>
             <div className="mt-8 flex space-x-4">
-              <Button className="group flex items-center space-x-2">
-                <span>View Demo</span>
-                <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" className="flex items-center space-x-2 border-slate-100/20">
-                <span>Source Code</span>
-                <Github className="h-4 w-4" />
-              </Button>
+              <Link href={activeProject.links.demo} target="_blank" rel="noopener noreferrer">
+                <Button className="group flex items-center space-x-2">
+                  <span>View Demo</span>
+                  <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href={activeProject.links.github} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="flex items-center space-x-2 border-slate-100/20">
+                  <span>Source Code</span>
+                  <Github className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -139,4 +144,3 @@ function ProjectCard({ project, isActive, onClick }: ProjectCardProps) {
     </motion.div>
   )
 }
-
