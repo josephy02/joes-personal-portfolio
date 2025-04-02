@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 const experiences = [
   {
     id: 1,
-    title: "Founder / AI Engineer",
+    title: "Co-Founder / CTO",
     company: "Stealth Startup",
     location: "Seattle, WA",
     period: "Oct 2024 – Present",
