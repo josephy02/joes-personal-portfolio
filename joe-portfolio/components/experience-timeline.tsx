@@ -31,19 +31,19 @@ const experiences = [
     ],
     skills: ["Computer Vision", "Image Segmentation", "PyTorch", "Data Pipelines"],
   },
-  {
-    id: 3,
-    title: "Lead Physics Tutor",
-    company: "University of Washington",
-    location: "Seattle, WA",
-    period: "Sept 2022 – June 2023",
-    description: [
-      "Supported 100+ students in understanding complex physics concepts",
-      "Developed teaching materials and study guides to improve student comprehension",
-      "Collaborated with faculty to identify areas where students needed additional support",
-    ],
-    skills: ["Physics", "Teaching", "Leadership"],
-  },
+  // {
+  //   id: 3,
+  //   title: "Lead Physics Tutor",
+  //   company: "University of Washington",
+  //   location: "Seattle, WA",
+  //   period: "Sept 2022 – June 2023",
+  //   description: [
+  //     "Supported 100+ students in understanding complex physics concepts",
+  //     "Developed teaching materials and study guides to improve student comprehension",
+  //     "Collaborated with faculty to identify areas where students needed additional support",
+  //   ],
+  //   skills: ["Physics", "Teaching", "Leadership"],
+  // },
 ]
 
 export function ExperienceTimeline() {
