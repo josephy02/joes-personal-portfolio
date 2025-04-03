@@ -73,15 +73,15 @@ export default function Home() {
           <div className="container relative z-10 mx-auto px-4 py-32 md:py-40">
             <div className="mx-auto max-w-4xl text-center">
               <AnimatedHeading
-                text="Hey! My Name's Joe!"
-                className="text-4xl font-bold tracking-normal md:text-6xl lg:text-7xl"
+                text="Hi. I'm Joseph. I Build AI for People."
+                className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
               />
-              <p className="mt-6 text-lg leading-relaxed text-slate-400 md:text-xl">
-                I'm an AI Engineer & Product Developer
-              </p>
+              {/* <p className="mt-6 text-lg leading-relaxed text-slate-400 md:text-xl">
+                AI Research Lead & Computer Vision Engineer
+              </p> */}
               <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                 <Button className="group relative overflow-hidden rounded-full px-8 py-6 text-sm font-medium uppercase tracking-wider">
-                  <span className="relative z-10"><Link href="#experience">Explore My Work</Link></span>
+                  <span className="relative z-10">Explore My Work</span>
                   <span className="absolute inset-0 h-full w-full translate-y-full rounded-full bg-primary transition-transform duration-300 group-hover:translate-y-0"></span>
                 </Button>
                 <Button
@@ -101,19 +101,20 @@ export default function Home() {
             <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
               <div className="flex flex-col justify-center">
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  Building <span className="text-primary">intelligent</span> systems for complex problems
+                  <span className="text-primary">Intelligent</span> systems for complex problems
                 </h2>
                 <div className="mt-6 h-1 w-20 bg-primary"></div>
                 <p className="mt-6 text-slate-400">
-                  I'm an AI Engineer with expertise in developing cutting-edge
-                  solutions that leverage the power of artificial intelligence and machine learning. My work spans
-                  across autonomous AI agents, computer vision, and Human-AI Interaction.
+                I'm an AI Research Lead and Computer Vision Engineer driven by a genuine passion for helping others through innovative technology.
+                At the heart of my work is the belief that artificial intelligence and machine learning can profoundly enhance human experiences.
+                I focus on developing autonomous AI agents, advancing computer vision, and exploring multimodal research—not just to achieve technical excellence, but to truly uplift, empower, and enrich the lives of the people who use these solutions.
+                My commitment goes beyond algorithms; it's about creating connections, solving real-world problems, and making a lasting positive impact.
                 </p>
-                <p className="mt-4 text-slate-400">
+                {/* <p className="mt-4 text-slate-400">
                   With a strong foundation in both theoretical concepts and practical applications, I build systems that
                   not only perform well technically but also deliver meaningful business impact.
-                </p>
-                <div className="mt-8 flex space-x-4">
+                </p> */}
+                {/* <div className="mt-8 flex space-x-4">
                   <div className="rounded-lg bg-slate-100/5 p-4 backdrop-blur-sm">
                     <h3 className="text-2xl font-bold text-primary">BS</h3>
                     <p className="mt-1 text-sm text-slate-400">Informatics</p>
@@ -126,7 +127,7 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-primary">AI</h3>
                     <p className="mt-1 text-sm text-slate-400">Research</p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="relative flex items-center justify-center">
                 <ProfileImage />
@@ -159,8 +160,8 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Technical Expertise</h2>
                 <div className="mx-auto mt-6 h-1 w-20 bg-primary"></div>
                 <p className="mx-auto mt-6 max-w-2xl text-slate-400">
-                  My technical toolkit spans across various AI/ML technologies and frameworks, allowing me to build
-                  comprehensive solutions.
+                  My technical expertise spans across these key areas, enabling me to build end-to-end AI solutions from
+                  research to production.
                 </p>
               </div>
               <div className="mt-16">
@@ -259,4 +260,3 @@ export default function Home() {
     </div>
   )
 }
-
