@@ -12,6 +12,20 @@ import Link from "next/link"
 const projects = [
   {
     id: 1,
+    title: "LoRA Edge Vision: Optimized AI Image Generation for Edge Devices",
+    description:
+      "LoRA Edge Vision fine-tunes Stable Diffusion for aerial imagery on edge devices, reducing model size and inference time without sacrificing quality.",
+    longDescription:
+      "LoRA Edge Vision optimizes Stable Diffusion models for edge deployment using Low-Rank Adaptation for efficient fine-tuning on aerial imagery. The framework includes complete data preprocessing, model training, and ONNX conversion, significantly reducing computational requirements while maintaining image quality. Comprehensive benchmarking confirms substantial performance gains for resource-constrained environments.",
+    image: "/images/lora.jpg",
+    tags: ["Python", "PyTorch", "ONNX", "Diffusers", "PEFT", "Detectron2"],
+    links: {
+      demo: "https://github.com/josephy02/lora-edge-vision",
+      github: "https://github.com/josephy02/lora-edge-vision",
+    },
+  },
+  {
+    id: 2,
     title: "A Customizable End-to-End Computer Vision Pipeline for Object Detection & Segmentation",
     description:
       "A customizable computer vision pipeline built with Detectron2 for object detection and instance segmentation tasks, with optimized deployment capabilities.",
@@ -25,7 +39,7 @@ const projects = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: "Real-Time Sentiment Analysis Dashboard",
     description: "Sentiment analysis microservices to process up to 1,000 social media posts in real time.",
     longDescription:
@@ -38,7 +52,7 @@ const projects = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: "AWS Support Ticket Analytics Dashboard",
     description: "A DE project that processes and visualizes AWS support ticket data using PySpark and Streamlit.",
     longDescription:
