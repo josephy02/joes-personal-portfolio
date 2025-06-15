@@ -6,6 +6,19 @@ import { Badge } from "@/components/ui/badge"
 const experiences = [
   {
     id: 1,
+    title: "AI/ML Engineer Intern",
+    company: "SK hynix",
+    location: "San Jose, CA",
+    period: "May 2025 – Present",
+    description: [
+      "Developing a cross-platform GPU benchmarking suite to evaluate ML training and inference performance across NVIDIA CUDA and Apple M-series devices, measuring metrics like FLOPS, memory bandwidth, and latency",
+      "Engineered a reproducible pipeline with statistical rigor, generating detailed Markdown reports and storing performance metrics in a historical SQLite database for long-term trend analysis",
+      "Identified hardware bottlenecks through tests on memory fragmentation, framework overhead, and latency, enabling actionable insights for optimizing ML infrastructure efficiency",
+    ],
+    skills: ["C++", "Python", "SQLite", "LLMs", "AI Inference", "R&D"],
+  },
+  {
+    id: 2,
     title: "Co-Founder / CTO",
     company: "Stealth Startup",
     location: "Seattle, WA",
@@ -18,7 +31,7 @@ const experiences = [
     skills: ["LangChain", "Vector Databases", "AI Agents", "LLMs"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Computer Vision Researcher Engineer",
     company: "University of Washington",
     location: "Seattle, WA",
