@@ -22,7 +22,7 @@ const experiences = [
     title: "Co-Founder / CTO",
     company: "Stealth Startup",
     location: "Seattle, WA",
-    period: "Oct 2024 – Present",
+    period: "Oct 2024 – May 2025",
     description: [
       "Architected and deployed autonomous AI agents using LangChain, achieving a 40% improvement in task completion rates and directly supporting customer-driven AI research initiatives",
       "Spearheaded research initiatives bridging cutting-edge model development with robust, open-source infrastructure improvements",
