@@ -6,10 +6,23 @@ import { Badge } from "@/components/ui/badge"
 const experiences = [
   {
     id: 1,
+    title: "AI Engineer",
+    company: "T-Mobile",
+    location: "Bellevue, WA",
+    period: "Sept 2025 – Present",
+    description: [
+      "Bridge AI and CX → Designing, training, and optimizing AI/LLM systems (e.g., intent detection, agentic workflows) that directly improve customer experience interactions at scale",
+      "Operationalizing AI → Owning the lifecycle from prototyping to production deployment: benchmarking, evaluation, monitoring, and iteration in real-world CX systems",
+      "Cross-functional collaboration → Partnering with data scientists, engineers, and product managers to integrate AI solutions into existing platforms, ensuring seamless user experiences and measurable business impact",
+    ],
+    skills: ["Python", "AI Agents", "RAG"],
+  },
+  {
+    id: 2,
     title: "AI/ML Engineer Intern",
     company: "SK hynix",
     location: "San Jose, CA",
-    period: "May 2025 – Present",
+    period: "May 2025 – Sept 2025",
     description: [
       "Developing a cross-platform GPU benchmarking suite to evaluate ML training and inference performance across NVIDIA CUDA and Apple M-series devices, measuring metrics like FLOPS, memory bandwidth, and latency",
       "Engineered a reproducible pipeline with statistical rigor, generating detailed Markdown reports and storing performance metrics in a historical SQLite database for long-term trend analysis",
@@ -18,7 +31,7 @@ const experiences = [
     skills: ["C++", "Python", "SQLite", "LLMs", "AI Inference", "R&D"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Co-Founder / CTO",
     company: "Stealth Startup",
     location: "Seattle, WA",
@@ -31,7 +44,7 @@ const experiences = [
     skills: ["LangChain", "Vector Databases", "AI Agents", "LLMs"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Computer Vision Researcher Engineer",
     company: "University of Washington",
     location: "Seattle, WA",
@@ -120,4 +133,3 @@ export function ExperienceTimeline() {
     </div>
   )
 }
-
