@@ -105,10 +105,12 @@ export default function Home() {
                 </h2>
                 <div className="mt-6 h-1 w-20 bg-primary"></div>
                 <p className="mt-6 text-slate-400">
-                I'm an AI Research Lead and Computer Vision Engineer driven by a genuine passion for helping others through innovative technology.
-                At the heart of my work is the belief that artificial intelligence and machine learning can profoundly enhance human experiences.
-                I focus on developing autonomous AI agents, advancing computer vision, and exploring multimodal research—not just to achieve technical excellence, but to truly uplift, empower, and enrich the lives of the people who use these solutions.
-                My commitment goes beyond algorithms; it's about creating connections, solving real-world problems, and making a lasting positive impact.
+                I'm an AI Engineer at T-Mobile, building direct-to-consumer AI experiences within the IntentCX team.
+                My work centers on creating intelligent, production-ready systems that make every customer interaction
+                more natural, personal, and efficient. I'm driven by the belief that artificial intelligence can meaningfully
+                enhance how people connect with technology. From designing conversational agents to deploying multimodal models
+                at scale, I focus on turning cutting-edge AI into intuitive, impactful products that truly serve people.
+                My goal is not just to push the boundaries of what's possible—but to make those innovations accessible, reliable, and human-centered.
                 </p>
                 {/* <p className="mt-4 text-slate-400">
                   With a strong foundation in both theoretical concepts and practical applications, I build systems that
