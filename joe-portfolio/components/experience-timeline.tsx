@@ -32,7 +32,7 @@ const experiences = [
   },
   {
     id: 3,
-    title: "Co-Founder / CTO",
+    title: "Founder",
     company: "Stealth Startup",
     location: "Seattle, WA",
     period: "Oct 2024 – May 2025",
