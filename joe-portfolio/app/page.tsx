@@ -1,261 +1,235 @@
-import { Suspense } from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import { ProjectShowcase } from "@/components/project-showcase"
-import { SkillsVisualization } from "@/components/skills-visualization"
+import { SiteNav } from "@/components/site-nav"
+import { Reveal } from "@/components/reveal"
 import { ContactForm } from "@/components/contact-form"
-import { ParticleBackground } from "@/components/particle-background"
-import { AnimatedHeading } from "@/components/animated-heading"
-import { AnimatedSection } from "@/components/animated-section"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { MouseFollower } from "@/components/mouse-follower"
-import { ProfileImage } from "@/components/profile-image"
-import { ExperienceTimeline } from "@/components/experience-timeline"
+import { about, experiences, links, posts, projects, skills } from "@/lib/content"
+
+const container = "mx-auto w-full max-w-site px-5 md:px-8"
+const linkMuted = "text-faint transition-colors hover:text-ink"
+
+function SectionHeader({ title, subtitle, aside }: { title: string; subtitle?: string; aside?: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-8">
+      <div>
+        <h2 className="font-serif text-[2rem] leading-tight">{title}</h2>
+        {subtitle && <p className="mt-2 max-w-xl text-sm text-dim">{subtitle}</p>}
+      </div>
+      {aside}
+    </div>
+  )
+}
 
 export default function Home() {
+  const [current, ...previous] = experiences
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-background to-background/80 dark:from-black dark:to-slate-900">
-      <MouseFollower />
-      <ParticleBackground />
+    <div className="min-h-screen">
+      <SiteNav />
 
-      <header className="fixed top-0 z-40 w-full border-b border-slate-100/10 bg-background/80 backdrop-blur-md dark:bg-black/50">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold tracking-tight">
-              J<span className="text-primary">Y</span>
-            </span>
-          </Link>
-          <nav className="hidden space-x-8 md:flex">
-            <Link href="#about" className="text-sm font-medium tracking-wider transition-colors hover:text-primary">
-              ABOUT
-            </Link>
-            <Link
-              href="#experience"
-              className="text-sm font-medium tracking-wider transition-colors hover:text-primary"
-            >
-              EXPERIENCE
-            </Link>
-            <Link href="#skills" className="text-sm font-medium tracking-wider transition-colors hover:text-primary">
-              SKILLS
-            </Link>
-            <Link href="#projects" className="text-sm font-medium tracking-wider transition-colors hover:text-primary">
-              PROJECTS
-            </Link>
-            <Link href="#contact" className="text-sm font-medium tracking-wider transition-colors hover:text-primary">
-              CONTACT
-            </Link>
-          </nav>
-          <div className="flex items-center space-x-4">
-            <ThemeToggle />
-            <div className="hidden md:flex space-x-1">
-              <Link href="https://github.com/josephy02" target="_blank">
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100/10 text-sm font-medium transition-colors hover:bg-primary/20 hover:text-primary">
-                  <Github className="h-4 w-4" />
-                  <span className="sr-only">GitHub</span>
-                </div>
-              </Link>
-              <Link href="https://linkedin.com/in/josephyared" target="_blank">
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100/10 text-sm font-medium transition-colors hover:bg-primary/20 hover:text-primary">
-                  <Linkedin className="h-4 w-4" />
-                  <span className="sr-only">LinkedIn</span>
-                </div>
-              </Link>
+      <main>
+        {/* Introduction */}
+        <section className={`${container} pb-16 pt-16 md:pb-[72px] md:pt-28`}>
+          <Reveal>
+            <h1 className="max-w-[820px] text-balance font-serif text-[2.6rem] leading-[1.1] tracking-[-0.01em] md:text-[3.5rem]">
+              Hi. I&apos;m Joseph. I Build AI for People.
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1} className="mt-10 flex flex-col gap-5 text-sm md:flex-row md:gap-12">
+            <div className="md:w-[280px]">
+              <p className="text-faint">Currently</p>
+              <p className="mt-1.5 text-dim">
+                {current.title} @ {current.company}
+              </p>
             </div>
-          </div>
-        </div>
-      </header>
+            <div className="md:w-[440px]">
+              <p className="text-faint">Previously</p>
+              <p className="mt-1.5 text-dim">{previous.map((e) => `${e.title} @ ${e.company}`).join(", ")}</p>
+            </div>
+          </Reveal>
+        </section>
 
-      <main className="relative">
-        {/* Hero Section */}
-        <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
-          <div className="container relative z-10 mx-auto px-4 py-32 md:py-40">
-            <div className="mx-auto max-w-4xl text-center">
-              <AnimatedHeading
-                text="Hi. I'm Joseph. I Build AI for People."
-                className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
-              />
-              {/* <p className="mt-6 text-lg leading-relaxed text-slate-400 md:text-xl">
-                AI Research Lead & Computer Vision Engineer
-              </p> */}
-              <div className="mt-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                <Button className="group relative overflow-hidden rounded-full px-8 py-6 text-sm font-medium uppercase tracking-wider">
-                  <span className="relative z-10">Explore My Work</span>
-                  <span className="absolute inset-0 h-full w-full translate-y-full rounded-full bg-primary transition-transform duration-300 group-hover:translate-y-0"></span>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="rounded-full border-slate-200/20 px-8 py-6 text-sm font-medium uppercase tracking-wider backdrop-blur-sm hover:bg-slate-100/10 dark:border-slate-800/50"
-                >
-                  <Link href="#contact">Get In Touch</Link>
-                </Button>
-              </div>
+        {/* Projects */}
+        <section id="work" className={`${container} pb-24 md:pb-32`}>
+          <SectionHeader
+            title="Featured Projects"
+            subtitle="A selection of my most impactful work in AI and machine learning."
+            aside={
+              <Link href={links.github} target="_blank" rel="noreferrer" className={`text-sm ${linkMuted}`}>
+                More on GitHub ↗
+              </Link>
+            }
+          />
+          <div className="mt-10 grid gap-x-6 gap-y-14 md:grid-cols-2">
+            {projects.map((p, i) => (
+              <Reveal key={p.title} delay={i < 2 ? i * 0.05 : 0}>
+                <article className="group">
+                  <Link href={p.links.demo} target="_blank" rel="noreferrer" className="block">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-soft">
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  </Link>
+                  <h3 className="mt-4 text-[15px] font-medium leading-snug">{p.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-dim">{p.description}</p>
+                  <details className="group/details mt-2 text-sm">
+                    <summary className="cursor-pointer list-none text-faint transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+                      <span className="group-open/details:hidden">Read more</span>
+                      <span className="hidden group-open/details:inline">Show less</span>
+                    </summary>
+                    <p className="mt-2 leading-relaxed text-dim">{p.longDescription}</p>
+                  </details>
+                  <p className="mt-3 text-sm text-faint">{p.tags.join(" · ")}</p>
+                  <div className="mt-3 flex gap-5 text-sm">
+                    <Link href={p.links.demo} target="_blank" rel="noreferrer" className="hover:text-accent-ink">
+                      View Demo ↗
+                    </Link>
+                    <Link href={p.links.github} target="_blank" rel="noreferrer" className="hover:text-accent-ink">
+                      Source Code ↗
+                    </Link>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section id="experience" className={`${container} pb-24 md:pb-32`}>
+          <SectionHeader title="Professional Experience" subtitle="My journey in AI research and development" />
+          <ol className="mt-10 border-b border-line">
+            {experiences.map((e) => (
+              <li key={e.company + e.period} className="border-t border-line py-8">
+                <Reveal className="grid gap-4 md:grid-cols-[220px_1fr] md:gap-12">
+                  <div className="text-sm">
+                    <p className="text-dim">{e.period}</p>
+                    <p className="mt-1 text-faint">{e.location}</p>
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-[1.6rem] leading-tight">{e.company}</h3>
+                    <p className="mt-1 text-sm text-dim">{e.title}</p>
+                    <ul className="mt-4 max-w-[680px] space-y-2.5 text-sm leading-relaxed text-dim">
+                      {e.description.map((d) => (
+                        <li key={d} className="flex gap-3">
+                          <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-faint" />
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-4 text-sm text-faint">{e.skills.join(" · ")}</p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+
+          {/* Skills */}
+          <div className="mt-24 md:mt-32">
+            <SectionHeader
+              title="Technical Expertise"
+              subtitle="My technical expertise spans across these key areas, enabling me to build end-to-end AI solutions from research to production."
+            />
+            <div className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+              {skills.map((s) => (
+                <Reveal key={s.name} className="border-t border-line pt-4">
+                  <h3 className="text-sm font-medium">{s.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-dim">{s.technologies.join(" · ")}</p>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* About Section */}
-        <AnimatedSection id="about" className="relative py-20 md:py-32">
-          <div className="container relative z-10">
-            <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
-              <div className="flex flex-col justify-center">
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  <span className="text-primary">Intelligent</span> systems for complex problems
-                </h2>
-                <div className="mt-6 h-1 w-20 bg-primary"></div>
-                <p className="mt-6 text-slate-400">
-                I'm an AI Engineer at T-Mobile, building direct-to-consumer AI experiences within the IntentCX team.
-                My work centers on creating intelligent, production-ready systems that make every customer interaction
-                more natural, personal, and efficient. I'm driven by the belief that artificial intelligence can meaningfully
-                enhance how people connect with technology. From designing conversational agents to deploying multimodal models
-                at scale, I focus on turning cutting-edge AI into intuitive, impactful products that truly serve people.
-                My goal is not just to push the boundaries of what's possible—but to make those innovations accessible, reliable, and human-centered.
-                </p>
-                {/* <p className="mt-4 text-slate-400">
-                  With a strong foundation in both theoretical concepts and practical applications, I build systems that
-                  not only perform well technically but also deliver meaningful business impact.
-                </p> */}
-                {/* <div className="mt-8 flex space-x-4">
-                  <div className="rounded-lg bg-slate-100/5 p-4 backdrop-blur-sm">
-                    <h3 className="text-2xl font-bold text-primary">BS</h3>
-                    <p className="mt-1 text-sm text-slate-400">Informatics</p>
+        {/* Writing */}
+        <section id="writing" className={`${container} pb-24 md:pb-32`}>
+          <SectionHeader
+            title="Writing"
+            aside={
+              <Link href={`${links.substack}/subscribe`} target="_blank" rel="noreferrer" className={`text-sm ${linkMuted}`}>
+                Subscribe on Substack ↗
+              </Link>
+            }
+          />
+          <ul className="mt-8 border-b border-line">
+            {posts.map((p) => (
+              <li key={p.title} className="border-t border-line">
+                <Link href={p.href} target="_blank" rel="noreferrer" className="group flex items-start justify-between gap-8 py-6">
+                  <div>
+                    <h3 className="font-serif text-[1.6rem] leading-tight transition-colors group-hover:text-accent-ink">
+                      {p.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm text-dim">{p.subtitle}</p>
                   </div>
-                  <div className="rounded-lg bg-slate-100/5 p-4 backdrop-blur-sm">
-                    <h3 className="text-2xl font-bold text-primary">UW</h3>
-                    <p className="mt-1 text-sm text-slate-400">Seattle</p>
-                  </div>
-                  <div className="rounded-lg bg-slate-100/5 p-4 backdrop-blur-sm">
-                    <h3 className="text-2xl font-bold text-primary">AI</h3>
-                    <p className="mt-1 text-sm text-slate-400">Research</p>
-                  </div>
-                </div> */}
-              </div>
-              <div className="relative flex items-center justify-center">
-                <ProfileImage />
-              </div>
+                  <span className="shrink-0 pt-2 text-sm text-faint">{p.date}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* About */}
+        <section id="about" className={`${container} pb-24 md:pb-32`}>
+          <div className="grid gap-8 md:grid-cols-[280px_1fr] md:gap-12">
+            <div className="relative aspect-square w-32 overflow-hidden rounded-full bg-soft md:w-40">
+              <Image src="/images/profile_pic_joe.jpg" alt="Joseph Yared" fill sizes="160px" className="object-cover" />
+            </div>
+            <div className="max-w-[640px]">
+              <h2 className="font-serif text-[2rem] leading-tight">Intelligent systems for complex problems</h2>
+              <p className="mt-5 text-lg leading-relaxed text-dim">{about}</p>
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
-        {/* Experience Section */}
-        <AnimatedSection id="experience" className="relative py-20 md:py-32">
-          <div className="container relative z-10">
-            <div className="mx-auto max-w-6xl">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Professional Experience</h2>
-                <div className="mx-auto mt-6 h-1 w-20 bg-primary"></div>
-                <p className="mx-auto mt-6 max-w-2xl text-slate-400">My journey in AI research and development</p>
-              </div>
-              <div className="mt-16">
-                <ExperienceTimeline />
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Skills Section */}
-        <AnimatedSection id="skills" className="relative py-20 md:py-32">
-          <div className="container relative z-10">
-            <div className="mx-auto max-w-6xl">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Technical Expertise</h2>
-                <div className="mx-auto mt-6 h-1 w-20 bg-primary"></div>
-                <p className="mx-auto mt-6 max-w-2xl text-slate-400">
-                  My technical expertise spans across these key areas, enabling me to build end-to-end AI solutions from
-                  research to production.
-                </p>
-              </div>
-              <div className="mt-16">
-                <Suspense fallback={<div>Loading skills...</div>}>
-                  <SkillsVisualization />
-                </Suspense>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Projects Section */}
-        <AnimatedSection id="projects" className="relative py-20 md:py-32">
-          <div className="container relative z-10">
-            <div className="mx-auto max-w-6xl">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Featured Projects</h2>
-                <div className="mx-auto mt-6 h-1 w-20 bg-primary"></div>
-                <p className="mx-auto mt-6 max-w-2xl text-slate-400">
-                  A selection of my most impactful work in AI and machine learning.
-                </p>
-              </div>
-              <div className="mt-16">
-                <Suspense fallback={<div>Loading projects...</div>}>
-                  <ProjectShowcase />
-                </Suspense>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Contact Section */}
-        <AnimatedSection id="contact" className="relative py-20 md:py-32">
-          <div className="container relative z-10">
-            <div className="mx-auto max-w-6xl rounded-2xl bg-slate-100/5 p-8 backdrop-blur-lg md:p-12">
-              <div className="grid gap-12 md:grid-cols-2">
-                <div className="flex flex-col justify-center">
-                  <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Let's Work Together</h2>
-                  <div className="mt-6 h-1 w-20 bg-primary"></div>
-                  <p className="mt-6 text-slate-400">
-                    I'm always interested in challenging projects and collaborations. Whether you have a specific
-                    project in mind or just want to discuss possibilities, I'd love to hear from you.
-                  </p>
-                  <div className="mt-8 space-y-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                        <Mail className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-medium text-slate-300">Email</h3>
-                        <p className="text-slate-400">josephyared0@gmail.com</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                        <Linkedin className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-medium text-slate-300">LinkedIn</h3>
-                        <p className="text-slate-400">linkedin.com/in/josephyared</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                        <span className="text-lg font-bold text-primary">📞</span>
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-medium text-slate-300">Phone</h3>
-                        <p className="text-slate-400">206-218-4825</p>
-                      </div>
-                    </div>
-                  </div>
+        {/* Contact */}
+        <section id="contact" className={`${container} pb-24 md:pb-32`}>
+          <div className="grid gap-12 border-t border-line pt-12 md:grid-cols-2">
+            <div>
+              <h2 className="font-serif text-[2rem] leading-tight">Let&apos;s Work Together</h2>
+              <p className="mt-4 max-w-md text-dim">
+                I&apos;m always interested in challenging projects and collaborations. Whether you have a specific project
+                in mind or just want to discuss possibilities, I&apos;d love to hear from you.
+              </p>
+              <dl className="mt-8 space-y-4 text-sm">
+                <div>
+                  <dt className="text-faint">Email</dt>
+                  <dd className="mt-1">
+                    <Link href={`mailto:${links.email}`} className="hover:text-accent-ink">{links.email}</Link>
+                  </dd>
                 </div>
-                <ContactForm />
-              </div>
+                <div>
+                  <dt className="text-faint">LinkedIn</dt>
+                  <dd className="mt-1">
+                    <Link href={links.linkedin} target="_blank" rel="noreferrer" className="hover:text-accent-ink">
+                      linkedin.com/in/josephyared
+                    </Link>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-faint">Phone</dt>
+                  <dd className="mt-1">
+                    <Link href={`tel:${links.phone}`} className="hover:text-accent-ink">{links.phone}</Link>
+                  </dd>
+                </div>
+              </dl>
             </div>
+            <ContactForm />
           </div>
-        </AnimatedSection>
+        </section>
       </main>
 
-      <footer className="relative z-10 border-t border-slate-100/10 py-8">
-        <div className="container">
-          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-            <p className="text-sm text-slate-400">© {new Date().getFullYear()} Joseph Yared. All rights reserved.</p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-sm text-slate-400 hover:text-primary">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm text-slate-400 hover:text-primary">
-                Terms of Service
-              </Link>
-            </div>
+      <footer className="border-t border-line">
+        <div className={`${container} flex flex-col gap-4 py-8 text-sm md:flex-row md:items-center md:justify-between`}>
+          <p className="text-faint">© {new Date().getFullYear()} Joseph Yared. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href={links.linkedin} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">LinkedIn ↗</Link>
+            <Link href={links.github} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">GitHub ↗</Link>
+            <Link href={links.substack} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">Substack ↗</Link>
           </div>
         </div>
       </footer>

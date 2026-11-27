@@ -19,7 +19,22 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
+      },
+      maxWidth: {
+        site: "1200px",
+      },
       colors: {
+        paper: "hsl(var(--paper))",
+        surface: "hsl(var(--surface))",
+        ink: "hsl(var(--ink))",
+        dim: "hsl(var(--dim))",
+        faint: "hsl(var(--faint))",
+        line: "hsl(var(--line))",
+        soft: "hsl(var(--soft))",
+        "accent-ink": "hsl(var(--accent-ink))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

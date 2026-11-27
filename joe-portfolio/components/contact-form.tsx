@@ -63,20 +63,20 @@ export function ContactForm() {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       {formError && (
-        <Alert variant="destructive" className="mb-6 bg-red-500/10 text-red-400 border-red-500/20">
+        <Alert variant="destructive" className="mb-6">
           <AlertCircle className="h-4 w-4" />
           <AlertDescription>{formError}</AlertDescription>
         </Alert>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <Input
             name="name"
             value={formData.name}
             onChange={handleChange}
             placeholder="Your Name"
-            className="border-slate-100/10 bg-slate-100/5 px-4 py-6 text-base backdrop-blur-sm focus:border-primary"
+            className="h-12 rounded-[4px] border-line bg-surface px-4 text-base placeholder:text-faint focus-visible:ring-1 focus-visible:ring-accent-ink focus-visible:ring-offset-0"
             required
           />
         </div>
@@ -87,7 +87,7 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your Email"
-            className="border-slate-100/10 bg-slate-100/5 px-4 py-6 text-base backdrop-blur-sm focus:border-primary"
+            className="h-12 rounded-[4px] border-line bg-surface px-4 text-base placeholder:text-faint focus-visible:ring-1 focus-visible:ring-accent-ink focus-visible:ring-offset-0"
             required
           />
         </div>
@@ -97,16 +97,16 @@ export function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Your Message"
-            className="min-h-[150px] resize-none border-slate-100/10 bg-slate-100/5 px-4 py-4 text-base backdrop-blur-sm focus:border-primary"
+            className="min-h-[150px] resize-none rounded-[4px] border-line bg-surface px-4 py-3 text-base placeholder:text-faint focus-visible:ring-1 focus-visible:ring-accent-ink focus-visible:ring-offset-0"
             required
           />
         </div>
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="group relative w-full overflow-hidden rounded-full bg-primary px-6 py-6 text-sm font-medium uppercase tracking-wider text-primary-foreground"
+          className="h-12 w-full rounded-[4px] bg-ink text-sm font-medium text-paper hover:bg-ink/85"
         >
-          <span className="relative z-10 flex items-center justify-center">
+          <span className="flex items-center justify-center">
             {isSubmitting ? (
               "Sending..."
             ) : (
@@ -115,7 +115,6 @@ export function ContactForm() {
               </>
             )}
           </span>
-          <span className="absolute inset-0 h-full w-full translate-y-full bg-primary/80 transition-transform duration-300 group-hover:translate-y-0"></span>
         </Button>
       </form>
     </motion.div>
