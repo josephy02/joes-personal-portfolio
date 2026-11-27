@@ -13,6 +13,9 @@ export const about =
 
 export const experiences = [
   {
+    slug: "t-mobile",
+    status: "Shipping 2026",
+    art: "linear-gradient(135deg, #E7A3C6 0%, #D24C8F 45%, #9C1F5E 100%)",
     title: "AI Engineer",
     company: "T-Mobile",
     location: "Bellevue, WA",
@@ -25,6 +28,9 @@ export const experiences = [
     skills: ["Python", "AI Agents", "RAG"],
   },
   {
+    slug: "sk-hynix",
+    status: "Shipped 2025",
+    art: "linear-gradient(160deg, #EDB57A 0%, #D9773A 50%, #9C83C9 100%)",
     title: "AI/ML Engineer Intern",
     company: "SK hynix",
     location: "San Jose, CA",
@@ -37,6 +43,9 @@ export const experiences = [
     skills: ["C++", "Python", "SQLite", "LLMs", "AI Inference", "R&D"],
   },
   {
+    slug: "stealth-startup",
+    status: "Founded 2024",
+    art: "linear-gradient(150deg, #9CC4B8 0%, #4E8D7D 55%, #24504A 100%)",
     title: "Founder",
     company: "Stealth Startup",
     location: "Seattle, WA",
@@ -49,6 +58,9 @@ export const experiences = [
     skills: ["LangChain", "Vector Databases", "AI Agents", "LLMs"],
   },
   {
+    slug: "university-of-washington",
+    status: "Research 2024",
+    art: "linear-gradient(140deg, #B9ABE3 0%, #7B67C2 55%, #3F2F7E 100%)",
     title: "Computer Vision Researcher Engineer",
     company: "University of Washington",
     location: "Seattle, WA",
@@ -77,12 +89,15 @@ export const skills = [
 
 export const projects = [
   {
+    slug: "lora-edge-vision",
+    name: "LoRA Edge Vision",
+    category: "Vision",
+    art: "linear-gradient(160deg, #3B3A6B 0%, #6A4E9C 50%, #C98BB9 100%)",
     title: "LoRA Edge Vision: Optimized AI Image Generation for Edge Devices",
     description:
       "LoRA Edge Vision fine-tunes Stable Diffusion for aerial imagery on edge devices, reducing model size and inference time without sacrificing quality.",
     longDescription:
       "LoRA Edge Vision optimizes Stable Diffusion models for edge deployment using Low-Rank Adaptation for efficient fine-tuning on aerial imagery. The framework includes complete data preprocessing, model training, and ONNX conversion, significantly reducing computational requirements while maintaining image quality. Comprehensive benchmarking confirms substantial performance gains for resource-constrained environments.",
-    image: "/images/lora.jpg",
     tags: ["Python", "PyTorch", "ONNX", "Diffusers", "PEFT", "Detectron2"],
     links: {
       demo: "https://github.com/josephy02/lora-edge-vision",
@@ -90,12 +105,15 @@ export const projects = [
     },
   },
   {
+    slug: "vision-pipeline",
+    name: "Vision Pipeline",
+    category: "Vision",
+    art: "linear-gradient(150deg, #9FB4CC 0%, #5B7799 55%, #2E4361 100%)",
     title: "A Customizable End-to-End Computer Vision Pipeline for Object Detection & Segmentation",
     description:
       "A customizable computer vision pipeline built with Detectron2 for object detection and instance segmentation tasks, with optimized deployment capabilities.",
     longDescription:
       "Developed a modular infrastructure system to support training of 3D multiple object detection and segmentation models using PyTorch and Detectron2. The system includes data preprocessing pipelines, model training workflows, and containerized deployment with Docker and Kubernetes orchestration. Features include automated dataset preparation, hyperparameter optimization, model evaluation tools, and export capabilities for production environments. The architecture supports various backbone networks and is optimized for both research experimentation and industrial applications.",
-    image: "/images/d2.jpg",
     tags: ["Python", "PyTorch", "Docker", "Detectron2"],
     links: {
       demo: "https://docs.google.com/presentation/d/1CwUDI6y-Z6E5PME46U4sSF9qtclZ6m3l/edit?usp=sharing&ouid=115360730949705164823&rtpof=true&sd=true",
@@ -103,11 +121,14 @@ export const projects = [
     },
   },
   {
+    slug: "spectranlp",
+    name: "SpectraNLP",
+    category: "Language",
+    art: "linear-gradient(140deg, #C9D58E 0%, #7FA05A 50%, #3D6440 100%)",
     title: "Real-Time Sentiment Analysis Dashboard",
     description: "Sentiment analysis microservices to process up to 1,000 social media posts in real time.",
     longDescription:
       "SpectraNLP is a modular sentiment analysis platform that collects text data from Flickr comments, New York Times articles, and Reddit posts to analyze public sentiment on topics like the Israel-Palestine conflict. Using VADER sentiment analysis with a custom lexicon, it processes and visualizes sentiment distribution, trends over time, and comparative analyses through an interactive Streamlit dashboard",
-    image: "/images/sentiment-analysis.jpg",
     tags: ["Python", "REST APIs", "Streamlit", "NLTK", "NLP"],
     links: {
       demo: "https://spectranlp.streamlit.app/",
@@ -115,11 +136,14 @@ export const projects = [
     },
   },
   {
+    slug: "support-analytics",
+    name: "Support Analytics",
+    category: "Data",
+    art: "linear-gradient(155deg, #F0C77A 0%, #D88E3A 50%, #8A4F24 100%)",
     title: "AWS Support Ticket Analytics Dashboard",
     description: "A DE project that processes and visualizes AWS support ticket data using PySpark and Streamlit.",
     longDescription:
       "Built an end-to-end analytics dashboard for AWS support ticket data. The system features an ETL pipeline for processing ticket data, real-time analytics visualizations, SLA monitoring and compliance tracking, and performance metrics visualization. The tech stack includes PySpark for data processing, Streamlit for interactive visualization, Pandas for data manipulation, and Plotly for interactive charts. This solution enables support teams to monitor ticket resolution performance, track SLA compliance, and identify trends in customer issues to improve service quality.",
-    image: "/images/aws2.jpg",
     tags: ["Python", "PySpark", "Pandas", "Plotly", "Streamlit"],
     links: {
       demo: "https://csanalytics-aws-support-metrics.streamlit.app/",
@@ -136,3 +160,14 @@ export const posts = [
     href: `${links.substack}/p/the-weight-of-becoming`,
   },
 ]
+
+export type Experience = (typeof experiences)[number]
+export type Project = (typeof projects)[number]
+
+export function findWork(slug: string) {
+  const experience = experiences.find((e) => e.slug === slug)
+  if (experience) return { kind: "experience" as const, item: experience }
+  const project = projects.find((p) => p.slug === slug)
+  if (project) return { kind: "project" as const, item: project }
+  return null
+}
